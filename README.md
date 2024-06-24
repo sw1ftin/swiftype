@@ -18,10 +18,21 @@ python -m venv venv
     - On Windows:
         ```shell
       venv\Scripts\activate
+      ```
+      <details>
+         <summary>Error in PowerShell</summary>
+         
+      **If you encountered an error in PowerShell, run this command:**
 
+      ```shell
+        Set-ExecutionPolicy RemoteSigned
+        ```
+      </details>
+   
     - On Linux and macOS:
         ```shell
       source venv/bin/activate
+      ```
 
 5. **Install `requirements.txt`:**
 
