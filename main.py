@@ -1,11 +1,10 @@
-import logging
-import os.path
-
 import flet as ft
 from flet_timer.flet_timer import Timer
 from random import choices
 from datetime import datetime
 import json
+import logging
+import os.path
 
 global words_count, page_controls_size, history_limit, seconds, errors, result, nickname, data
 words_count, page_controls_size, history_limit, seconds, errors, result, nickname = 15, 5, 6, 0, 0, 0, ft.TextField()
@@ -490,9 +489,12 @@ def homepage(page: ft.Page):
     page.window.min_width = 800
     page.window.min_height = 600
 
-    with open("words.txt", "r", encoding="utf-8") as f:
-        global raw_loaded_words
-        raw_loaded_words = f.readlines()
+    try:
+        with open("words.txt", "r", encoding="utf-8") as f:
+            global raw_loaded_words
+            raw_loaded_words = f.readlines()
+    except:
+        logging.error("File `words.txt` not found")
 
     def change_words_count(e):
         global words_count
