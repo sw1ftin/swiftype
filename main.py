@@ -286,7 +286,6 @@ def homepage(page: ft.Page):
                     data["history"].append(data_result)
                 else:
                     data["history"] = [data_result]
-                errors = 0
                 page.add(
                     ft.Column(
                         [
@@ -327,6 +326,7 @@ def homepage(page: ft.Page):
                         ]
                     )
                 )
+                errors = 0
             case "click":
                 stats = [
                     get_datatable(),
